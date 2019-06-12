@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "image",
+    "scheduler-hints"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "name": {
+      "type": "string",
+      "example": "my-super-container"
+    },
+    "image": {
+      "description": "The name of the image to use when creating the container",
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "scheduled",
+        "running"
+      ]
+    },
+    "scheduler-hints": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "example": {
+        "flavour": "gold",
+        "os": "Linux",
+        "CPU": "AMD"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/schema#"
+}
